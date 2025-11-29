@@ -16,4 +16,4 @@ Prototipo ultra-semplice: dato una **RAL**, stima:
   - Addizionali: 2%
 
 ## Come provarlo
-👉 [Demo online](https://danisalzano.github.io/calhub.com/danisalzano/calcolatore_netCalcola**.
+👉 [Demo online] https://danisalzano.github.io/calcolatore_netto_ral/
