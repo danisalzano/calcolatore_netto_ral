@@ -1,0 +1,41 @@
+
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <title>Calcolatore Netto Semplificato</title>
+  <style>
+    body { font-family: sans-serif; max-width: 400px; margin: 40px auto; }
+    input, button { width: 100%; padding: 10px; margin: 8px 0; font-size: 1rem; }
+    .out { margin-top: 20px; font-size: 1.1rem; }
+  </style>
+</head>
+<body>
+  <h1>Netto da RAL (Ultra Semplice)</h1>
+  <p>Assunzioni: IRPEF 30%, INPS 9,19%, Addizionali 2%</p>
+
+  <input id="ral" type="number" placeholder="Inserisci RAL (€)" />
+  <button onclick="calcola()">Calcola</button>
+
+  <div class="out" id="risultato"></div>
+
+  <script>
+    function calcola() {
+      const ral = parseFloat(document.getElementById('ral').value);
+      if (!ral || ral <= 0) { alert('Inserisci una RAL valida'); return; }
+
+      const inps = ral * 0.0919;
+      const tasse = ral * 0.30 + ral * 0.02;
+      const netto = ral - inps - tasse;
+      const nettoMensile = netto / 13;
+
+      document.getElementById('risultato').innerHTML = `
+        <p>Netto annuo: <b>${netto.toFixed(2)} €</b></p>
+        <p>Netto mensile: <b>${nettoMensile.toFixed(2)} €</b></p>
+        <p>Tasse totali: <b>${tasse.toFixed(2)} €</b></p>
+        <p>Contributi INPS: <b>${inps.toFixed(2)} €</b></p>
+      `;
+    }
+  </script>
+</body>
+</html>
